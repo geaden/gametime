@@ -19,4 +19,13 @@
         <item name="android:shadowDy">1</item>
         <item name="android:shadowRadius">2</item>
     </style>
+    <string-array name="ratio_array">
+        <item>4:1</item>
+        <item>3:1</item>
+        <item>2:1</item>
+        <item>1:1</item>
+        <item>1:2</item>
+        <item>1:3</item>
+        <item>1:4</item>
+    </string-array>
 </resources>
