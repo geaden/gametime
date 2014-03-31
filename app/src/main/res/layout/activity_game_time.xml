@@ -5,14 +5,7 @@
         android:id="@+id/section_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Display 1"
-        android:id="@+id/displayName"
-        android:layout_below="@+id/section_label"
-        android:layout_centerHorizontal="true" />
+
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -45,18 +38,9 @@
         android:text="Ratio"
         android:id="@+id/ratioLabel"
         android:textSize="70px"
+        android:layout_marginBottom="32dp"
         android:layout_above="@+id/calcChronometer"
-        android:layout_toLeftOf="@+id/displayName" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="4:1"
-        android:id="@+id/ratioValue"
-        android:textSize="100px"
-        android:layout_above="@+id/calcChronometer"
-        android:layout_toRightOf="@+id/startButton" />
+        android:layout_toLeftOf="@+id/settingsButton" />
 
     <Button
         android:layout_width="wrap_content"
@@ -70,7 +54,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/curChronometer"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="33dp"
         android:shadowColor="@android:color/darker_gray"
         android:textSize="100px"
         android:layout_below="@+id/displayName"
@@ -83,8 +67,23 @@
         android:textColor="@android:color/holo_red_light"
         android:textSize="100px"
         android:layout_above="@+id/settingsButton"
-        android:layout_alignLeft="@+id/ratioValue"
-        android:layout_alignStart="@+id/ratioValue"
-        android:layout_toRightOf="@+id/curChronometer" />
+        android:layout_alignLeft="@+id/curChronometer" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ratios"
+        android:layout_alignTop="@+id/ratioLabel"
+        android:layout_toRightOf="@+id/startButton" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/displayName"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/section_label"
+        android:textSize="70px"
+        android:autoText="false"
+        android:text="Display 1" />
 
 </RelativeLayout>

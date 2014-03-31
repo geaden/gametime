@@ -3,8 +3,11 @@ package com.geaden.gametime.app;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Chronometer;
+import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.geaden.gametime.impl.DisplayChronoImpl;
@@ -21,7 +24,7 @@ public class GameTimeActivity extends Activity {
     private Chronometer calcChronometer;
     private DisplayChrono mCurChronometer;
     private DisplayChrono mCalcChronometer;
-    private TextView displayName;
+    private EditText displayName;
     private Display displ;
 
     @Override
@@ -32,11 +35,19 @@ public class GameTimeActivity extends Activity {
         calcChronometer = (Chronometer) findViewById(R.id.calcChronometer);
         mCurChronometer = new DisplayChronoImpl(curChronometer);
         mCalcChronometer = new DisplayChronoImpl(calcChronometer);
-        displ = new DisplayImpl("My Display", "4:1", mCurChronometer, mCalcChronometer);
-        displayName = (TextView) findViewById(R.id.displayName);
+        Spinner ratios = (Spinner) findViewById(R.id.ratios);
+        // Create an ArrayAdapter using the string array and a default spinner layout
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.ratio_array, android.R.layout.simple_spinner_item);
+        // Specify the layout to use when the list of choices appears
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        // Apply the adapter to the spinner
+        ratios.setAdapter(adapter);
+        ratios.setSelection(0);
+        displayName = (EditText) findViewById(R.id.displayName);
+        displ = new DisplayImpl(displayName.getText().toString(), (String) ratios.getSelectedItem(), mCurChronometer, mCalcChronometer);
+        ratios.setOnItemSelectedListener(new RatioSelectedListener(displ));
         displayName.setText(displ.getName());
-        ratio = (TextView) findViewById(R.id.ratioValue);
-        ratio.setText(displ.getRatio());
         resetButton = (Button) findViewById(R.id.resetButton);
         startButton = (Button) findViewById(R.id.startButton);
         startButtonInit();

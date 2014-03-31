@@ -40,6 +40,11 @@ public interface Display {
     public String getRatio();
 
     /**
+     * Sets ratio
+     */
+    public void setRatio(String ratio);
+
+    /**
      * Gets calculated estimated time in a string representation
      * HH:MM:SS
      *
@@ -59,6 +64,7 @@ public interface Display {
      * Activates current display
      */
     public void activate();
+
 
     /**
      * Pauses current display

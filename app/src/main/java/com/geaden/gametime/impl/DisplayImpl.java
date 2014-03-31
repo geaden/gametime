@@ -64,6 +64,11 @@ public class DisplayImpl implements Display {
     }
 
     @Override
+    public void setRatio(String ratio) {
+        this.ratio = ratio;
+    }
+
+    @Override
     public String getCalculatedEllapsedTime() {
         return this.calcChronometer.getTime();
     }
