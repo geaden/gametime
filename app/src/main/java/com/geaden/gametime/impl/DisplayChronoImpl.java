@@ -1,6 +1,7 @@
 package com.geaden.gametime.impl;
 
 import android.os.SystemClock;
+import android.util.Log;
 import android.widget.Chronometer;
 
 import com.geaden.gametime.DisplayChrono;
@@ -69,7 +70,9 @@ public class DisplayChronoImpl implements DisplayChrono{
             ratio = 1.;
         }
         long elapsedMillis = getTimeMillis();
-        long resultTime = (long) (elapsedMillis / 1000 * ratio);
+        double calculatedTime = elapsedMillis / 1000. * ratio;
+        Log.d("CHRONO", calculatedTime + " " + ratio);
+        long resultTime = (long) calculatedTime;
         int seconds = (int) (resultTime % 60) ;
         int minutes = (int) (resultTime / 60 % 60);
         int hours   = (int) (resultTime / (60*60) % 24);

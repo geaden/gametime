@@ -47,11 +47,11 @@ public class DisplayImpl implements Display {
     @Override
     public double getRatioValue() {
         String[] rtArr = ratio.split(":");
-        double result;
+        double result = 0.0;
         if (rtArr.length == 2) {
             int rt1 = Integer.parseInt(rtArr[0]);
             int rt2 = Integer.parseInt(rtArr[1]);
-            result = rt1 / rt2;
+            result = (double) rt1 / rt2;
         } else {
             throw new IllegalArgumentException("Not a valid ratio!");
         }

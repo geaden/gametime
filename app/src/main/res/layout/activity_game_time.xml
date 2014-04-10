@@ -1,6 +1,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:clickable="true">
     <TextView
         android:id="@+id/section_label"
         android:layout_width="wrap_content"
@@ -14,9 +15,7 @@
         android:background="@drawable/green_button"
         style="@style/ButtonText"
         android:minWidth="320px"
-        android:layout_alignTop="@+id/resetButton"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignBottom="@+id/resetButton" />
 
     <Button
         android:layout_width="wrap_content"
@@ -28,8 +27,9 @@
         style="@style/ButtonText"
         android:minWidth="320px"
         android:layout_centerVertical="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentLeft="false"
+        android:layout_alignParentTop="false"
+        android:layout_alignParentRight="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -74,7 +74,8 @@
         android:layout_height="wrap_content"
         android:id="@+id/ratios"
         android:layout_alignTop="@+id/ratioLabel"
-        android:layout_toRightOf="@+id/startButton" />
+        android:layout_toRightOf="@+id/startButton"
+        android:layout_below="@+id/ratioLabel" />
 
     <EditText
         android:layout_width="wrap_content"
